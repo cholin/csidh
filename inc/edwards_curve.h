@@ -35,7 +35,7 @@ void yDBL(proj Q, const proj P, const proj A);
 void yADD(proj R, const proj P, const proj Q, const proj PQ);
 void yMUL(proj Q, const proj P, const proj A, uint8_t const i);
 
-void elligator(proj T_plus, proj T_minus, const proj A);
+void _elligator(proj T_plus, proj T_minus, const proj A);
 
 void cofactor_multiples(proj P[], const proj A, int8_t lower, int8_t upper);
 uint8_t validate(const proj A);

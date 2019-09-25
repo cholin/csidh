@@ -123,7 +123,7 @@ void action_evaluation(proj C, const uint8_t key[], const proj A)
 		}
 
 		// Before constructing isogenies, we must to search for suitable point
-		elligator(current_Tp[0], current_Tp[1], current_A[0]);
+		_elligator(current_Tp[0], current_Tp[1], current_A[0]);
 
 		// Next, it is required to multiply the point by 4 and each l_i that doesn't belong to the current batch
 		yDBL(current_Tp[0], current_Tp[0], current_A[0]); // mult. by [2]

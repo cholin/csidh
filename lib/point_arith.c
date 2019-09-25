@@ -143,7 +143,7 @@ void yMUL(proj Q, const proj P, const proj A, uint8_t const i)
 };// Cost ~ 1.5*Ceil[log_2(l)]*(4M + 2S)
 
 /* ------------------------------------------------------------------------------- *
-   elligator()
+   _elligator()
    Inputs: the Edwards curve constant A[0]:=a, and A[1]:=(a - d), and an integer 
            number i in {0, ..., 15};
    output: the projective Edwards y-coordinates of y(T_{+}) = YT_{+}/ZT_{+} and
@@ -151,7 +151,7 @@ void yMUL(proj Q, const proj P, const proj A, uint8_t const i)
            affine points of T_{+} and T_{-} in the Montgomery curve belong to F_p 
            and F_{p^2}\F_p, respectively.
  * ------------------------------------------------------------------------------- */
-void elligator(proj T_plus, proj T_minus, const proj A)
+void _elligator(proj T_plus, proj T_minus, const proj A)
 {
 	set_zero(T_plus[0], NUMBER_OF_WORDS);			// Initial value is zero
 	set_zero(T_minus[0], NUMBER_OF_WORDS);			// Initial value is zero
