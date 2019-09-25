@@ -1,6 +1,8 @@
 #ifndef _ADDC_H_
 #define _ADDC_H_
 
+#include "edwards_curve.h"
+
 // The public Edward's curve with coefficients a and b. E is isomorphic to E' / F_p : y^2 = x^3 + x
 // a and (a - d) in Montgomery domain represetantion 
 static proj E = {
