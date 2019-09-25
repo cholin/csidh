@@ -1,6 +1,12 @@
 # INCLUDE FOLDER
 INC_DIR+= -I./inc -I./inc/fp$(BITLENGTH_OF_P)/
 
+# REQUIRED FOR LIB
+FILES_REQUIRED_IN_LIB=./lib/rng.c \
+			./lib/fp$(BITLENGTH_OF_P).S \
+			./lib/point_arith.c ./lib/isogenies.c \
+			./lib/action_simba_$(shell echo $(TYPE) | tr A-Z a-z).c
+
 # REQUIRED FOR TESTS
 FILES_REQUIRED_IN_CSIDH=./lib/rng.c \
 			./lib/fp$(BITLENGTH_OF_P).S \
@@ -53,6 +59,10 @@ action_cost:
 
 action_timing: 
 	$(CC) $(INC_DIR) $(FILES_REQUIRED_IN_ACTION_CC) -o $(OUTPUT_ACTION_CC) $(CFLAGS_ACTION_CC) $(CFLAGS_ALWAYS)
+
+lib: csidh
+	$(CC) -c $(INC_DIR) $(FILES_REQUIRED_IN_LIB) $(CFLAGS_ALWAYS) $(CFLAGS_CSIDH)
+	ar rcs libcsidh_$(BITLENGTH_OF_P).a *.o
 
 clean:
 	rm -f ./bin/*
